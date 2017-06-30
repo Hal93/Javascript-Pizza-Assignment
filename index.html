@@ -1,0 +1,171 @@
+<html>
+	
+<!-- FIREFOX READY -->
+
+<head>
+	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+	<META HTTP-EQUIV="Expires" CONTENT="-1">
+
+	<title>Menu Order</title>
+
+	<!-- Import css and js files -->
+	<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+	<script type="text/javascript" src="script.js"></script>	
+</head>	
+
+<body>	
+	<div class = "pagecontent">	
+		
+		<div class = "bordertop"> 
+		<img src="images/border_top.png" alt="border top"> 
+		</div> 
+		
+		<div class = "logo"> 
+		<div id = "coll1">
+		<img src="images/logo2.jpg" alt="logo2"> 
+		</div>
+		<div id = "coll2">
+		<h1>Dino's Tomato Shack</h1> 
+		</div> 
+		</div>
+		
+		 <form id="form" onsubmit="return validate();" method="get" action="http://atlantis.cit.ie/displayvalues.php">
+			
+			<fieldset>
+				<legend>Customer</legend>
+			
+				<p>
+					 Name: <br />
+					<input type="text" id="name" name="Name"/>
+				</p>
+				
+				<p>
+					Address:
+					<input type="text" id="address" name="Address" />
+				</p>
+			
+				<p>
+					Phone number:
+					<input type="text" id="number" name = "PhoneNumber" />
+				</p>
+			
+				<p>
+					CIT Offer:(Optional)
+					<input type="text" id="mail" name = "E-Mail Address" onChange = "toggleVisibility('CIT')" />
+				
+				</p>
+			
+			</fieldset>	
+				
+			<div class = "text">
+			<p>
+			<b>Welcome to Dino's Tomato Shack Online Order Service. Bringing the Italian experience right into your living room. 
+			Make your own pizza with the flick of a button. It's so simple, just provide the details and 
+			we'll do the rest. The best pizzas at the lowest prices. Order now and get two free toppings. What are you waiting for?</b>
+			
+			</p>
+
+			<!-- Dummy text --> 
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae neque augue. 
+				Etiam nec massa ac nibh blandit iaculis. Nam sit amet risus non libero consectetur aliquet ac 
+				sit amet diam. In faucibus tempor odio sit amet interdum. Integer placerat malesuada libero, quis ultrices 
+				libero facilisis vitae. 
+				Suspendisse iaculis posuere sodales. Nulla placerat suscipit pharetra. Nullam 
+				ipsum erat, tempor et scelerisque non, porttitor vel urna.
+			</p> 
+			<br> 
+			</br> 
+			<br>
+			</br>
+			
+			</div>
+				
+				
+				
+			<fieldset>
+				<legend>Payment</legend>
+				<p>
+					Credit Card Number:
+					 <input type="text" id="Card form" name="Credit_Card_Number" onChange="validate()"/>
+					
+				</p>
+			</fieldset>		
+				
+			<fieldset>	
+				<legend>Order</legend>
+				<p> Please Choose pizza size first.</p>
+				<b><p> Pizza Size:</b><br>
+				<br/>
+					<img src="images/PIzza-baseSmall.png" alt="small">
+					<input type="radio"  name="pizzaSize" id ="small" value="Small" onClick = "calcPrice()" /> Small: €9.00
+					<br/>
+					<img src="images/PIzza-baseMedium.png" alt="medium">
+					<input type="radio"  name="pizzaSize" id ="medium" value="Medium" onClick = "calcPrice()" /> Medium €12.00
+					<br/>
+					<img src="images/PIzza-baseLarge.png" alt="large">
+					
+					<input type="radio"  name="pizzaSize" id ="large" value="Large" onClick = "calcPrice()" /> Large €16.00
+					
+				
+				</p>
+				<b><p> Toppings: </b><br />
+						Pepperoni <input type="checkbox" name= "Topping1" id="Pepron" value = "pepperoni" onClick="toggleVisibility('Pep')" /> <br />
+										
+						
+						Extra Cheese
+						<input type="checkbox" name= "Topping2" id="Cheesey" value = "Extra_Cheese" onClick="toggleVisibility('Cheese')" /> <br />
+									
+						Bacon
+						<input type="checkbox" name= "Topping3" id="Bac" value = "Bacon" onClick="toggleVisibility('Bacon')" /> <br />
+						
+						Onion
+						<input type="checkbox" name= "Topping4" id="onions" value = "Onions" onClick="toggleVisibility('Onion')" /> <br />
+				
+						Peppers
+						<input type="checkbox" name= "Topping5" id="Pepper" value = "Peppers" onClick="toggleVisibility('Peppers')" /> <br />
+				
+						Spinach
+						<input type="checkbox" name= "Topping6" id="Spin" value = "Spinach" onClick="toggleVisibility('Spinach')" /> <br />
+				
+						Tuna
+						<input type="checkbox" name= "Topping7" id="tuna1" value = "Tuna" onClick="toggleVisibility('Tuna')" /> <br />
+				</p>
+				
+				<p id = "totCost" name = "Total_Cost" >Total Cost: 0.00</p>
+				<p>
+				<input type="submit" value="Submit Order" onclick="" />
+				</p>
+				</div>	
+			</form>	
+				
+			
+			<div id="pic" >
+			<fieldset>
+			<Legend>Pizza</legend>	
+					<img src="images/PIzza-base.png" alt="main image" id="pBase" />
+
+			</fieldset>
+		</div>
+					
+		<div class="borderBottom">
+			<img src="images/border_middle.png" alt="border image">
+			<img src="images/border_bottom.png" alt="border image"> 
+		</div>	
+	</div>
+
+
+		<!-- Load up images --> 
+		<img  id="Hala" src="images/PIzza0.png" alt="halapinos"  style="visibility:hidden"/>
+		<img  id="Bacon" src="images/PIzza1.png" alt="bacon" style="visibility:hidden"/>
+		<img  id="Onion" src="images/PIzza2.png" alt="onion" style="visibility:hidden"/>
+		<img  id="Spinach" src="images/PIzza3.png" alt="spinach"  style="visibility:hidden"/>
+		<img  id="Pep" src="images/PIzza4.png" alt="pepperoni" style="visibility:hidden"/>
+		<img  id="Cheese" src="images/PIzza5.png" alt="cheese" style="visibility:hidden"/>
+		<img  id="Peppers" src="images/pepper.png" alt="pepper" style="visibility:hidden"/>
+		<img  id="Tuna" src="images/Tuna.png" alt="tuna pic" style="visibility:hidden"/>
+		<img  id="Visa" src="images/visa-logo.jpg" alt="visa" style="visibility:hidden"/>	
+		<img  id="CIT" src="images/citlogo.gif" alt="cit" style="visibility:hidden"/>	
+		<img  id="MC" src="images/mc.jpg" alt="cit" style="visibility:hidden"/>
+	</body>
+</html>
